@@ -16,7 +16,7 @@ public class MainSignatureTest {
      * - Method: public static Optional<String> getUserName()
      *
      * Behavior (in autograder):
-     * - The environment variable USER is set (e.g., "Chana")
+     * - The environment variable USERNAME is set (e.g., "Chana")
      * - getUserName() must return Optional.of(the env value)
      */
     @Test
@@ -35,18 +35,18 @@ public class MainSignatureTest {
 
     @Test
     void getUserName_returns_student_name_env_var_when_present() throws Exception {
-        String expected = System.getenv("USER");
-        assertNotNull(expected, "Autograder misconfigured: USER env var must be set");
-        assertFalse(expected.isBlank(), "Autograder misconfigured: USER must be non-blank");
+        String expected = System.getenv("USERNAME");
+        assertNotNull(expected, "Autograder misconfigured: USERNAME env var must be set");
+        assertFalse(expected.isBlank(), "Autograder misconfigured: USERNAME must be non-blank");
 
         Class<?> clazz = Class.forName("mcon364.las.touro.edu.Main");
         Method m = clazz.getDeclaredMethod("getUserName", String.class);
 
         @SuppressWarnings("unchecked")
-        Optional<String> result = (Optional<String>) m.invoke(null, "USER");
+        Optional<String> result = (Optional<String>) m.invoke(null, "USERNAME");
 
         assertNotNull(result, "getUserName must not return null");
-        assertTrue(result.isPresent(), "Expected Optional.of(USER) when USER is set");
-        assertEquals(expected, result.get(), "getUserName must return the exact value of USER");
+        assertTrue(result.isPresent(), "Expected Optional.of(USERNAME) when USERNAME is set");
+        assertEquals(expected, result.get(), "getUserName must return the exact value of USERNAME");
     }
 }

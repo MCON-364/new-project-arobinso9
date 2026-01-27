@@ -38,7 +38,8 @@ jobs:
         uses: education/autograding@v1
 
       - name: Report autograding results
-        uses: education/autograding-grading-reporter@v1
+        if: always()
+        uses: classroom-resources/autograding-grading-reporter@v1
         env:
           AUTOGRADER_RESULTS: "${{ steps.autograder.outputs.grading-score }}"
         with:

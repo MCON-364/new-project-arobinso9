@@ -12,12 +12,7 @@ public class Main {
         Optional<String> environmentVarName= getUserName(envVarName);
         int number=10;
         var name= "Aviva";
-        switch(){
-            case 1:
-                break;
-            case 2:
-                break;
-        }
+
 
 
     }

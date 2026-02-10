@@ -20,7 +20,7 @@ public class MainTest {
     void testGetGreeting(){
         // we can pass in any NON environment variable key name to getGreeting() to make it fail
         // USERNAME is a built in environment variable in every system
-        assertEquals("I am sorry. There was no user name", Main.getGreeting("NULL"));
+        assertEquals("Hello, Guest", Main.getGreeting("NULL"));
         assertEquals("Hello, " + System.getenv("USERNAME"), Main.getGreeting("USERNAME"));
     }
 

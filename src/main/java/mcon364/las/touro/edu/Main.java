@@ -29,7 +29,7 @@ public class Main {
             return builder.toString();
         }
         else
-            return "I am sorry. There was no user name";
+            return "Hello, Guest";
     }
     public static int processValues(List<List<Integer>> data){
         //a list of lists of integers
